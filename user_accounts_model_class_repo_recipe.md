@@ -236,19 +236,7 @@ This is so you get a fresh table contents every time you run the test suite.
 
 # file: spec/user_account_repository_spec.rb
 
-def reset_user_account_table
-  seed_sql = File.read('spec/seeds_user_account.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'social_network_test' })
-  connection.exec(seed_sql)
-end
 
-describe UserAccountRepository do
-  before(:each) do 
-    reset_user_account_table
-  end
-
-  # (your tests will go here).
-end
 ```
 
 ## 8. Test-drive and implement the Repository class behaviour

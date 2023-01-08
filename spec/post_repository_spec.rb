@@ -1,15 +1,10 @@
 require 'post_repository'
-
+require 'user_account_repository'
+require 'reseed_social_network_db'
 RSpec.describe PostRepository do
-  def reset_posts_table
-    seed_sql = File.read('spec/seeds_posts.sql')
-    connection = PG.connect({ host: '127.0.0.1', dbname: 'social_network_test' })
-    connection.exec(seed_sql)
-  end
-  
   describe PostRepository do
     before(:each) do 
-      reset_posts_table
+      reset_tables
     end
   
     it 'returns all users posts' do

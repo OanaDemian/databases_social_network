@@ -11,7 +11,7 @@ CREATE TABLE posts (
   user_account_id int,
   constraint fk_user_account foreign key(user_account_id)
     references user_accounts(id)
-    -- on delete cascade
+    on delete cascade
 );
 
 

@@ -1,4 +1,4 @@
-TRUNCATE TABLE user_accounts RESTART IDENTITY CASCADE;
+TRUNCATE TABLE posts, user_accounts RESTART IDENTITY;
 
 INSERT INTO user_accounts (email_address, username) VALUES ('a_user@gmail.com', 'user A');
 INSERT INTO user_accounts (email_address, username) VALUES ('b_userB@yahoo.com', 'user B');
