@@ -1,3 +1,3 @@
 class UserAccount
-  attr_accessor :email_address, :username
+  attr_accessor :id, :email_address, :username
 end

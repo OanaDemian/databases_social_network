@@ -1,6 +1,6 @@
 require 'post_repository'
 
-RSpec.describe 'PostRepository' do
+RSpec.describe PostRepository do
   def reset_posts_table
     seed_sql = File.read('spec/seeds_posts.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'social_network_test' })
@@ -77,6 +77,15 @@ RSpec.describe 'PostRepository' do
       expect(repo.find(1).title).to eq 'title 1'
       repo.delete(1) # => nil
       expect(repo.all.length).to eq 6
+      expect(repo.all.first.title).to eq 'title 2'
+    end
+
+    it 'deletes a post by user_account_id' do
+      repo = PostRepository.new
+      expect(repo.find(1).user_account_id).to eq '1'
+      repo.delete_by_user_account(1)  # => nil
+      expect(repo.all.length).to eq 4
+      expect(repo.all.first.title).to eq 'title 2'
     end
   end
 end

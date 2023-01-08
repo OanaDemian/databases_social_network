@@ -194,7 +194,7 @@ repo = UserAccountRepository.new
 user_account = repo.find(3) 
 
 user_account.id # =>  3
-user_account.email_address # =>  'c_user@gmail.com
+user_account.email_address # =>  'c_userC@hotmail.com'
 user_account.username # =>  'user C'
 
 # 3

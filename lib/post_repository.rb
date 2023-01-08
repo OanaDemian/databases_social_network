@@ -41,4 +41,10 @@ class PostRepository
     sql_params = [id]
     result_set = DatabaseConnection.exec_params(sql, sql_params)
   end
+
+  def delete_by_user_account(user_account_id)
+    sql = 'DELETE FROM posts WHERE user_account_id  = $1;'
+    sql_params = [user_account_id]
+    result_set = DatabaseConnection.exec_params(sql, sql_params)
+  end
 end
